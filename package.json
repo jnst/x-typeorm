@@ -13,6 +13,8 @@
       "mysql2": "^1.6.1"
    },
    "scripts": {
-      "start": "ts-node src/index.ts"
+      "start": "ts-node src/index.ts",
+      "db:sync": "ts-node node_modules/.bin/typeorm schema:sync",
+      "db:drop": "ts-node node_modules/.bin/typeorm schema:drop"
    }
 }

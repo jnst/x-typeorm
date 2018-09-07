@@ -3,17 +3,19 @@
    "version": "0.0.1",
    "description": "Awesome project developed with TypeORM.",
    "devDependencies": {
-      "ts-node": "3.3.0",
       "@types/node": "^8.0.29",
+      "prettier": "^1.14.2",
+      "ts-node": "3.3.0",
       "typescript": "2.5.2"
    },
    "dependencies": {
-      "typeorm": "0.2.7",
+      "mysql2": "^1.6.1",
       "reflect-metadata": "^0.1.10",
-      "mysql2": "^1.6.1"
+      "typeorm": "0.2.7"
    },
    "scripts": {
       "start": "ts-node src/index.ts",
+      "format": "prettier --write \"{src,test}/**/*.ts\"",
       "db:sync": "ts-node node_modules/.bin/typeorm schema:sync",
       "db:drop": "ts-node node_modules/.bin/typeorm schema:drop"
    }

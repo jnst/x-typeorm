@@ -1,23 +1,26 @@
-import {User} from "../../src/entity/User";
-import {Connection, createConnection, Repository} from "typeorm";
+import {Connection, createConnection} from 'typeorm';
+import {UserRepository} from '../../src/repository/UserRepository';
 
 describe('UserRepository', () => {
   let connection: Connection;
-  let repository: Repository<User>;
+  let userRepository: UserRepository;
 
   beforeAll(async () => {
     connection = await createConnection();
-    repository = connection.getRepository(User);
+    userRepository = connection.getCustomRepository(UserRepository);
   });
 
   afterAll(async () => {
     await connection.close();
   });
 
-  describe('findOne', () => {
+  describe('findByFirstName', () => {
     it('should return one entity', async () => {
-      const user = await repository.findOne(1);
-      expect(user.id).toBe(1);
+      const users = await userRepository.findByFirstName('Timber');
+      expect(users.length).toBeGreaterThanOrEqual(1);
+      users.forEach(user => {
+        expect(user.firstName).toBe('Timber');
+      });
     });
   });
 });

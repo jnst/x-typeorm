@@ -1,22 +1,39 @@
 {
-   "name": "x-typeorm",
-   "version": "0.0.1",
-   "description": "Awesome project developed with TypeORM.",
-   "devDependencies": {
-      "@types/node": "^8.0.29",
-      "prettier": "^1.14.2",
-      "ts-node": "3.3.0",
-      "typescript": "2.5.2"
-   },
-   "dependencies": {
-      "mysql2": "^1.6.1",
-      "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.7"
-   },
-   "scripts": {
-      "start": "ts-node src/index.ts",
-      "format": "prettier --write \"{src,test}/**/*.ts\"",
-      "db:sync": "ts-node node_modules/.bin/typeorm schema:sync",
-      "db:drop": "ts-node node_modules/.bin/typeorm schema:drop"
-   }
+  "name": "x-typeorm",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/node": "^8.0.29",
+    "jest": "^23.5.0",
+    "prettier": "^1.14.2",
+    "ts-jest": "^23.1.4",
+    "ts-node": "3.3.0",
+    "typescript": "2.5.2"
+  },
+  "dependencies": {
+    "mysql2": "^1.6.1",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "0.2.7"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "jest",
+    "format": "prettier --write \"{src,test}/**/*.ts\"",
+    "db:sync": "ts-node node_modules/.bin/typeorm schema:sync",
+    "db:drop": "ts-node node_modules/.bin/typeorm schema:drop"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "test",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage"
+  }
 }

@@ -37,3 +37,15 @@ $ yarn db:sync
 ```bash
 $ yarn db:drop
 ``` 
+
+## Run app
+
+```bash
+$ yarn start
+```
+
+## Test
+
+```bash
+$ yarn test
+```
